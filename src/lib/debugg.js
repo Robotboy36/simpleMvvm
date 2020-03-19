@@ -1,12 +1,20 @@
 
 class Debugger {
-    constructor (perfix) {
-        this.perfix = perfix || '输出：'
+    constructor (prefix, color) {
+        this.prefix = prefix || 'Debugger'
+        this.color = color || '#ec7259'
     }
 
-    log (...args) {
-        args.unshift(this.prefix)
-        window.console.log.apply(window.console, args)
+    debug () {
+        let me = this
+
+        return function (...args) {
+            args.unshift(
+                `%c${me.prefix}:`,
+                `color: ${me.color};`
+            )
+            window.console.log.apply(window.console, args)
+        }
     }
 }
 

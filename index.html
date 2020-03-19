@@ -7,7 +7,43 @@
 </head>
 <body>
     <div id="app">
-        <h2>{{manager}}</h2>
+        <h1>
+            {{boss}} -- {{manager}}
+        </h1>
+        <h2>boss: {{boss}}</h2>
+        <h3>manager: {{manager}}</h3>
+        <ul>
+            <li>{{who.name}}</li>
+            <li>{{who.age}}</li>
+        </ul>
+
+        <div>
+            text-manager: <span v-text="manager"></span>
+        </div>
+        <div>
+            text-who.name: <span v-text="who.name"></span>
+        </div>
+        <div>
+            html-boss: <span v-html="boss"></span>
+            html-manager: <span v-html="manager"></span>
+        </div>
+
+        <div>
+            v-model - boss: <input type="text" v-model="boss">
+        </div>
+        <div>
+            :value - manager: <input type="text" :value="manager">
+        </div>
+
+        <div>
+            v-bind:type v-model manager: <input v-bind:type="inputType" v-model="manager">
+        </div>
+        <div>
+            :type v-model boss: <input :type="inputType" v-model="boss">
+        </div>
+
+        <button v-on:click="onClick">v-on点击</button>
+        <button @click="onClick">v-on点击</button>
     </div>
 </body>
 </html>
