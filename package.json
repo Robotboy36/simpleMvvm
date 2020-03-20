@@ -1,10 +1,11 @@
 {
-  "name": "simpleMvvm",
+  "name": "simple-mvvm",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config=./web.config.js --hiddenModules --hot"
+    "start": "webpack-dev-server --config=build/config.dev.js --hiddenModules --hot",
+    "build": "webpack-cli --config=build/config.prd.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,10 @@
     "@babel/preset-env": "^7.8.7",
     "babel-loader": "^8.0.6",
     "html-webpack-plugin": "^3.2.0",
+    "terser-webpack-plugin": "^2.3.5",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   }
 }

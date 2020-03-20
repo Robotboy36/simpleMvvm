@@ -1,12 +1,11 @@
 
 const path = require('path')
-const resolve = dir => path.resolve(__dirname, './', dir)
+const resolve = dir => path.resolve(__dirname, '../', dir)
 const htmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    mode: 'development',
     entry: {
-        index: resolve('./src/main.js')
+        simpleMvvm: resolve('./src/main.js')
     },
 
     output: {
@@ -23,11 +22,6 @@ module.exports = {
                 include: [resolve('src')]
             }
         ]
-    },
-
-    devServer: {
-        port: 9090,
-        clientLogLevel: 'error'
     },
 
     plugins: [

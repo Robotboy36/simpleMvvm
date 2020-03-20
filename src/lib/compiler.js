@@ -174,20 +174,21 @@ class Compiler {
         [...attrs].forEach(attr => {
             const {name, value} = attr
             if (this.isDirective(name)) {
-                // v-text, v-html, v-model
                 let [simpleDirective, directive] = name.split(/\-/)
                 let [dirType, dirName] = (directive || simpleDirective).split(/:|@/)
 
-                // v-on:click, @click
+                // @click
                 if (/@/.test(simpleDirective)) {
                     dirType = 'on'
                 }
 
-                // v-bind:type, :type, 
+                // :type, 
                 else if (/:/.test(simpleDirective)) {
                     dirType = 'bind'
                 }
 
+                // v-text, v-html, v-model
+                // v-on:click, v-bind:type, 
                 compilerUtil[dirType](el, value, this.vm, dirName)
                 
                 // 删除指令属性
